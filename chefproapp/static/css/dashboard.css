@@ -9,7 +9,7 @@ body {
     height: 100vh;
     padding: 0;
     margin: 0;
-    background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url("/static/images/icons/foods.jpg") no-repeat;
+    background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url("https://raw.githubusercontent.com/sami9644/ChefPro-production/main/chefproapp/static/images/icons/foods.jpg") no-repeat;
     background-size: 100% 100%;
     display: flex;
     flex-direction: column;
