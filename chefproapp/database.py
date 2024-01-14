@@ -6,7 +6,7 @@ def unique_id():
     return str(uuid.uuid4()).replace("-","")
 
 def db():
-    conn = pymysql.connect(host="localhost",user="root",password="Sami@7760365935",database="chefprodb")
+    conn = pymysql.connect(host="sql.freedb.tech",user="freedb_Samimad100",password="U@d2a8p&f3VTBzh5",database="freedb_madridista_connect")
     return conn
 
 def register(fullname,username,emailid,country,birthdate,password):
