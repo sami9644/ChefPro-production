@@ -76,15 +76,12 @@ WSGI_APPLICATION = 'chefpro.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.mysql',
-		'NAME': 'joblydb',
-		'USER': 'root',
-		'PASSWORD': 'Sami@7760365935',
-		'HOST':'localhost',
-		'PORT':'3306',
-	}
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+
 
 
 # Password validation
