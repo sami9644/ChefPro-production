@@ -126,5 +126,3 @@ def rate_recipe(stars,comment,recipe,commentor):
             cur.execute("UPDATE ratings SET stars=%s,comment=%s WHERE id = %s",params)
             conn.commit()
         return 'old'
-    
-print("wefijweifwefi")
