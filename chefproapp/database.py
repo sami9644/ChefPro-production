@@ -127,3 +127,4 @@ def rate_recipe(stars,comment,recipe,commentor):
             conn.commit()
         return 'old'
     
+print("wefijweifwefi")
