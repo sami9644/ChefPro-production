@@ -99,6 +99,11 @@ input {
   .footer p {
     color: #fff;
   }
+.forget {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
   @media (max-width:768px) {
     form {
         width: 100%;
