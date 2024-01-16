@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block title %} Reset your password {% endblock %}
+
+{% block content %}
+<form action="/sendmail" method="post">
+    {% csrf_token %}
+    <div class="inputs">
+        <label>Enter your email</label>
+        <input type="text" name="email" required>
+    </div>
+    <div class="inputs">
+        <button type="submit">Get password reset email</button>
+    </div>
+</form>
+{% endblock %}

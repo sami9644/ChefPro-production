@@ -180,3 +180,7 @@ def raterecipe(request):
       return HttpResponse("<script>alert('Comment shared with the owner!');location.href='/';</script>")
    else:
       return HttpResponse("<script>alert('You overwritten your previous comment');location.href='/';</script>")
+
+@csrf_exempt
+def resetpassword(request):
+  return render(request,'resetpas.html')
