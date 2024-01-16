@@ -188,7 +188,7 @@ def resetpassword(request):
 
 @csrf_exempt
 def sendEmail(request):
-    email = request.form['email']
+    email = request.POST['email']
     conn = db.db()
     cur = conn.cursor()
     cur.execute("SELCT userid FROM users WHERE email = %s",(email,))
