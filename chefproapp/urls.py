@@ -18,5 +18,6 @@ urlpatterns = [
     path('comments/<recipeid>',views.comments,name="comments"),
     path('rate/',views.raterecipe,name="RATING"),
     path('forgetpass/',views.resetpassword,name="Reset password"),
+    path('sendmail/',views.sendEmail,name="Send reset link!"),
     path('logout/',views.logout_view,name="logout")
 ]

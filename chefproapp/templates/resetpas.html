@@ -2,7 +2,7 @@
 {% block title %} Reset your password {% endblock %}
 
 {% block content %}
-<form action="/sendmail" method="post">
+<form action="/sendmail/" method="post">
     {% csrf_token %}
     <div class="inputs">
         <label>Enter your email</label>

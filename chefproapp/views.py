@@ -9,6 +9,7 @@ from functools import wraps
 import os
 import re
 from . import upload
+from django.core.mail import send_mail
 
 def remove_newline_chars(input_str):
     return input_str.replace("\n", "")
@@ -184,3 +185,22 @@ def raterecipe(request):
 @csrf_exempt
 def resetpassword(request):
   return render(request,'resetpas.html')
+
+@csrf_exempt
+def sendEmail(request):
+    email = request.form['email']
+    conn = db.db()
+    cur = conn.cursor()
+    cur.execute("SELCT userid FROM users WHERE email = %s",(email,))
+    userinfo = cur.fetchone()
+    if userinfo:
+        subject = 'Hello from chefpro official website'
+        message = f'To reset your password go to https://chef-pro.onrender.com/resetpass/{userinfo[0]}'
+        from_email = 'samif.jain36@gmail.com'
+        recipient_list = [email]
+
+        send_mail(subject, message, from_email, recipient_list)
+
+        return HttpResponse("<p>Email with reset password link sent successfully! check your email inbox or spam</p><a href='home'>Go home </a>")
+    else:
+        return HttpResponse("<script>alert('email is not found!');location.href='/forgetpass'")
