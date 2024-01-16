@@ -17,5 +17,6 @@ urlpatterns = [
     path('deleterecipe/',views.delete_recipe,name="Delete recipe"),
     path('comments/<recipeid>',views.comments,name="comments"),
     path('rate/',views.raterecipe,name="RATING"),
+    path('forgetpass/',views.resetpassword,name="Reset password"),
     path('logout/',views.logout_view,name="logout")
 ]
