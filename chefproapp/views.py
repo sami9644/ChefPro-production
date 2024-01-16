@@ -191,7 +191,7 @@ def sendEmail(request):
     email = request.POST['email']
     conn = db.db()
     cur = conn.cursor()
-    cur.execute("SELCT userid FROM users WHERE email = %s",(email,))
+    cur.execute("SELECT userid FROM users WHERE email = %s",(email,))
     userinfo = cur.fetchone()
     if userinfo:
         subject = 'Hello from chefpro official website'
