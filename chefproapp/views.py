@@ -10,6 +10,7 @@ import os
 import re
 from . import upload
 from django.core.mail import send_mail
+from werkzeug.security import generate_password_hash,check_password_hash
 
 def remove_newline_chars(input_str):
     return input_str.replace("\n", "")
