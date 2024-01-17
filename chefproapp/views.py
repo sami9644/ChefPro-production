@@ -226,6 +226,7 @@ def resetpasswordPOST(request):
       if data:
         cur.execute("UPDATE users SET password = %s WHERE userid = %s",(generate_password_hash(one),request.POST['id'],))
         conn.commit()
+        return HttpResponse("<script>alert('password reset successfully!');location.href='/login';</script>")
       else:
         return HttpResponse("<script>alert('user not found');location.href='/login';</script>")
     else:
