@@ -19,6 +19,7 @@ urlpatterns = [
     path('rate/',views.raterecipe,name="RATING"),
     path('forgetpass/',views.resetpassword,name="Reset password"),
     path('resetpass/<userid>',views.resetpasswordform,name="iwdih"),
+    path('resetpassword/',views.resetpasswordPOST,name="Resetpass"),
     path('sendmail/',views.sendEmail,name="Send reset link!"),
     path('logout/',views.logout_view,name="logout")
 ]
