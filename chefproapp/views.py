@@ -207,7 +207,7 @@ def sendEmail(request):
         return HttpResponse("<script>alert('email is not found!');location.href='/forgetpass';</script>")
 
 def resetpasswordform(request,userid):
-    if userinfo:
+    if userid:
       context = {'userid':userid}
       return render(request,'reset.html',context)
     else:
