@@ -192,6 +192,7 @@ def sendEmail(request):
     conn = db.db()
     cur = conn.cursor()
     cur.execute("SELECT userid FROM users WHERE emailid = %s",(email,))
+    conn.close()
     userinfo = cur.fetchone()
     if userinfo:
         subject = 'Hello from chefpro official website'
@@ -201,6 +202,31 @@ def sendEmail(request):
 
         send_mail(subject, message, from_email, recipient_list)
 
-        return HttpResponse("<p>Email with reset password link sent successfully! check your email inbox or spam</p><a href='home'>Go home </a>")
+        return HttpResponse("<p>Email with reset password link sent successfully! check your email inbox or spam</p><a href='/'>Go home </a>")
     else:
-        return HttpResponse("<script>alert('email is not found!');location.href='/forgetpass'")
+        return HttpResponse("<script>alert('email is not found!');location.href='/forgetpass';</script>")
+
+def resetpasswordform(request,userid):
+    if userinfo:
+      context = {'userid':userid}
+      return render(request,'reset.html',context)
+    else:
+      return HttpResponse("<script>alert('error');location.href='/forgetpass';</script>")
+
+
+def resetpasswordPOST(request):
+    one = request.POST['one']
+    two = request.POST['two']
+    if one == two:
+      conn = db.db()
+      cur = conn.cursor()
+      cur.execute("SELECT * FROM users WHERE userid = %s",(request.POST['id']))
+      data = cur.fetchone()
+      if data:
+        cur.execute("UPDATE users SET password = %s WHERE userid = %s",(generate_password_hash(one),request.POST['id'],))
+        conn.commit()
+      else:
+        return HttpResponse("<script>alert('user not found');location.href='/login';</script>")
+    else:
+      return HttpResponse("<script>alert('both input fields must be the same');location.href='/forgetpass';</script>")
+
